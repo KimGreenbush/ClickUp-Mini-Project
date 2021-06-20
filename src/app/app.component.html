@@ -5,9 +5,9 @@
         <th *ngFor="let th of tableHead">{{th}}</th>
     </tr>
     <tr *ngFor="let tc of tableCell">
-        <td>{{tc}}</td>
-        <!-- <td >{{tc.name}}</td> -->
-        <!-- <td >{{tc.number}}</td> -->
-        <!-- <td >{{tc.types}}</td> -->
+        <!-- <td>{{tc}}</td> -->
+        <td >{{tc.name}}</td>
+        <td >{{tc.id}}</td>
+        <td *ngFor="let typelist of tc.types" >{{typelist.type.name}}</td>
     </tr>
 </table>
