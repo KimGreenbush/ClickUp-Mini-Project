@@ -11,14 +11,22 @@ export class PokemonService {
   constructor(private _http: HttpClient) { }
 
   getPokemon() {
-    let pokes: object[] = []
+    let pokes: Array<aPokemon> = []
     for (let p = 1; p <= 151; p++) {
       let pokemon = this._http.get<aPokemon>(`https://pokeapi.co/api/v2/pokemon/${p}`)
-      pokemon.subscribe(poke => pokes.push(poke))
+      pokemon.subscribe(poke => {
+        pokes.push({
+          name: poke.name,
+          id: poke.id,
+          types: poke.types
+        })
+      })
     }
     return pokes
   }
 }
 export interface aPokemon {
-  results: []
+  name: string,
+  id: number,
+  types: [{ type: {name: string}}]
 }
