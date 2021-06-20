@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonService } from './pokemon.service';
+import { PokemonService, aPokemon } from './pokemon.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,12 +9,12 @@ import { PokemonService } from './pokemon.service';
 export class AppComponent implements OnInit {
   title: string
   tableHead: string[]
-  tableCell: object[]
+  tableCell: aPokemon[]
 
   constructor(private _service: PokemonService) {
     this.title = 'Angular Mini Project'
     this.tableHead = ["Name", "Number", "Type(s)"]
-    this.tableCell = [{}]
+    this.tableCell = []
   }
   ngOnInit() {
     this.getPokemonFromService()
@@ -22,5 +23,6 @@ export class AppComponent implements OnInit {
   getPokemonFromService() {
     let pokemon = this._service.getPokemon()
     this.tableCell = pokemon
+
   }
 }
