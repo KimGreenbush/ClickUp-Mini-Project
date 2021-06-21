@@ -13,6 +13,7 @@ export class PokemonService {
   getPokemon() {
     let pokemon: Array<aPokemon> = []
     for (let p = 1; p <= 151; p++) {
+      // I needed to subscribe in service rather than hand back the observable because in order to get multiple pokemon with their properties, I needed to make multiple requests and format them before returning them to the component.
       this._http.get<aPokemon>(`https://pokeapi.co/api/v2/pokemon/${p}`)
         .subscribe(poke => {
           pokemon.push({
