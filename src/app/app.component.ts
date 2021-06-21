@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   constructor(private _service: PokemonService) {
     this.title = 'Angular Mini Project'
-    this.tableHead = ["Name", "Number", "Type(s)"]
+    this.tableHead = ["Number", "Name", "Type(s)"]
     this.tableCell = []
   }
   ngOnInit() {

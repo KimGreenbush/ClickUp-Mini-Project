@@ -5,9 +5,10 @@
         <th *ngFor="let th of tableHead">{{th}}</th>
     </tr>
     <tr *ngFor="let tc of tableCell">
-        <!-- <td>{{tc}}</td> -->
-        <td >{{tc.name}}</td>
         <td >{{tc.id}}</td>
-        <td *ngFor="let typelist of tc.types" >{{typelist.type.name}}</td>
+        <td >{{tc.name}}</td>
+        <td>
+            <span *ngFor="let typelist of tc.types" >{{typelist.type.name}} </span>
+        </td>
     </tr>
 </table>
