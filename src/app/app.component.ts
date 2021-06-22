@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonService, aPokemon } from './pokemon.service';
+import { PokemonService } from './pokemon.service';
+import { Pokemon } from "./pokemon.model"
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { PokemonService, aPokemon } from './pokemon.service';
 export class AppComponent implements OnInit {
   title: string
   tableHead: string[]
-  tableCell: aPokemon[]
+  tableCell: Pokemon[]
 
   constructor(private _service: PokemonService) {
     this.title = 'Angular Mini Project'

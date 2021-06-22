@@ -4,6 +4,8 @@ import {HttpClientModule} from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { PokemonService } from './pokemon.service';
+import { StoreModule } from '@ngrx/store';
+import { appReducer } from "./state/app.reducer"
 
 @NgModule({
   declarations: [
@@ -11,7 +13,8 @@ import { PokemonService } from './pokemon.service';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({allPokemon: appReducer})
   ],
   providers: [PokemonService],
   bootstrap: [AppComponent]
