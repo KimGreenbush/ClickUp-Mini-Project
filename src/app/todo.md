@@ -1,7 +1,7 @@
 - [x] create table
-- [ ] add service to get data via http
+- [x] add service to get data via http
   - [x] Use pokeapi?
   - [x] add RxJS for managing Observables and events
-- [ ] add sorting
 - [ ] add state management (NgRx)
+- [ ] add sorting
 - [ ] add drag and drop
