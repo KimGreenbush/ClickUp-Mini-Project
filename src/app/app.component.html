@@ -1,14 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularMiniProject</title>
+</head>
+<body>
+
 <h1>{{title}}</h1>
 
-<table>
-    <tr>
-        <th *ngFor="let th of tableHead">{{th}}</th>
+<table
+    matSort (matSortChange)="sortPokemon($event)"
+    cdkDropListGroup>
+    <thead>
+    <tr
+    cdkDropList
+    [cdkDropListData]="tableCol"
+    (cdkDropListDropped)="drop($event)">
+        <th
+        *ngFor="let th of tableCol"
+        mat-sort-header="{{th}}"
+        cdkDrag>
+            {{th}}
+    </th>
     </tr>
-    <tr *ngFor="let tc of tableCell">
-        <td >{{tc.id}}</td>
-        <td >{{tc.name}}</td>
+    </thead>
+    <tbody>
+    <tr
+    *ngFor="let poke of sortedPokemon"
+    cdkDropList
+    [cdkDropListData]="tableCell">
+        <td >{{poke.id}}</td>
+        <td >{{poke.name}}</td>
         <td>
-            <span *ngFor="let typelist of tc.types" >{{typelist.type.name}} </span>
+            <span *ngFor="let typelist of poke.types">{{typelist.type.name}} </span>
         </td>
     </tr>
+    </tbody>
 </table>
+
+<footer>
+    <p>I do not own <a href="https://www.pokemon.com/us/">Pokemon</a> or the  <a href="https://pokeapi.co/">PokeAPI</a>. </p>
+</footer>
+
+</body>
+</html>
