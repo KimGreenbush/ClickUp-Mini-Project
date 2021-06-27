@@ -5,7 +5,10 @@ import {HttpClientModule} from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { PokemonService } from './pokemon.service';
 import { StoreModule } from '@ngrx/store';
-import { appReducer } from "./state/app.reducer"
+import { appReducer } from "./state/app.reducer";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MatSortModule } from '@angular/material/sort';
+import { DragDropModule } from '@angular/cdk/drag-drop'
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { appReducer } from "./state/app.reducer"
   imports: [
     BrowserModule,
     HttpClientModule,
-    StoreModule.forRoot({allPokemon: appReducer})
+    StoreModule.forRoot({allPokemon: appReducer}),
+    BrowserAnimationsModule,
+    MatSortModule,
+    DragDropModule
   ],
   providers: [PokemonService],
   bootstrap: [AppComponent]
