@@ -2,6 +2,6 @@
 - [x] add service to get data via http
   - [x] Use pokeapi?
   - [x] add RxJS for managing Observables and events
-- [ ] add state management (NgRx)
-- [ ] add sorting
+- [x] add state management (NgRx)
+- [x] add sorting
 - [ ] add drag and drop

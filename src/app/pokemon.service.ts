@@ -23,7 +23,7 @@ export class PokemonService {
   getPokemon() {
     const pokemon: Pokemon[] = []
     for (let p = 1; p <= 151; p++) {
-      // I needed to subscribe in the service rather than hand back the observable because in order to get multiple pokemon with their properties, I needed to make multiple requests and format them before returning a single collection to the component.
+      // I needed to subscribe in the service here rather than return the observable in order to get multiple pokemon with their properties, I needed to make multiple requests and format them before returning a single collection to the component.
       const subscription = this._http.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${p}`)
         .pipe(
           retry(1),
@@ -36,7 +36,7 @@ export class PokemonService {
             types: poke.types
           })
         })
-      setTimeout(() => subscription.unsubscribe(), 1000)
+      setTimeout(() => subscription.unsubscribe(), 5000)
     }
     return pokemon
   }
